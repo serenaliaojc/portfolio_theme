@@ -3,6 +3,8 @@ Theme Name: S Portfolio
 Theme URI: http://example.com/
 Description: Description
 Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Author: Serena Liao
 Author URI: http://example.com/
 Tags: portfolio
@@ -325,4 +327,27 @@ template {
 	top: 5px;
 	width: auto;
 	z-index: 100000; /* Above WP toolbar. */
+}
+
+/*--------------------------------------------------------------
+3.0 Alignments
+--------------------------------------------------------------*/
+
+.alignleft {
+	display: inline;
+	float: left;
+	margin-right: 1.5em;
+}
+
+.alignright {
+	display: inline;
+	float: right;
+	margin-left: 1.5em;
+}
+
+.aligncenter {
+	clear: both;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
