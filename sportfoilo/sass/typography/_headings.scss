@@ -1,3 +1,25 @@
 h1, h2, h3, h4, h5, h6 {
 	clear: both;
+	font-weight: normal;
+}
+h1 {
+	font-size: 1.8rem;
+	color: $color__main-brand;
+}
+h2 {
+	color: $color__main-brand;
+	text-align: center;
+}
+h3 {
+	font-size: 1.2rem;
+}
+
+.front-page-block h2 {
+	a {
+		color: $color__main-brand;
+	}
+	margin: 1rem 0 3.5rem 0;
+}
+.front-page-block h2::after {
+	content: '.';
 }

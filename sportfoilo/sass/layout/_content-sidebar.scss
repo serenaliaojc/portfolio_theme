@@ -2,6 +2,7 @@
 	float: left;
 	margin: 0 (-$size__site-sidebar) 0 0;
 	width: $size__site-main;
+	min-height: 60vh;
 }
 
 .site-main {
@@ -17,6 +18,12 @@
 .site-footer {
 	clear: both;
 	width: $size__site-main;
+	.site-info {
+		clear: both;
+		text-align: center;
+		border-top: 1px solid #000;
+		padding: 1rem;
+	}
 }
 
 @import "no-sidebar";

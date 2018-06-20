@@ -10,6 +10,9 @@ html {
 
 body {
 	background: $color__background-body; /* Fallback for when there is no custom background color defined. */
+	max-width: 900px;
+	margin: 0 auto;
+	padding: 0 1rem;
 }
 
 hr {
@@ -27,7 +30,7 @@ img {
 }
 
 figure {
-	margin: 1em 0; /* Extra wide images within figure tags don't overflow the content area. */
+	// margin: 1em 0; /* Extra wide images within figure tags don't overflow the content area. */
 }
 
 @import "tables";

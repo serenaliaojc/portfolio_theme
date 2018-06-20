@@ -41,10 +41,13 @@ if ( ! function_exists( 'sportfolio_setup' ) ) :
 		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		 */
 		add_theme_support( 'post-thumbnails' );
+		add_image_size( 'project-thumb', 400, 400, true );
+		set_post_thumbnail_size( 400, 400, array( 'center', 'top')  ); 
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
 			'menu-1' => esc_html__( 'Primary', 'sportfolio' ),
+			'menu-2' => 'Front Page Menu'
 		) );
 
 		/*
@@ -78,6 +81,13 @@ if ( ! function_exists( 'sportfolio_setup' ) ) :
 			'width'       => 250,
 			'flex-width'  => true,
 			'flex-height' => true,
+		) );
+
+		add_theme_support( 'post-formats', array(
+			'aside', 
+			'gallery',
+			'link',
+			'status'
 		) );
 	}
 endif;
@@ -159,3 +169,53 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+function register_my_cpts_projects() {
+
+	/**
+	 * Post Type: Projects.
+	 */
+
+	$labels = array(
+		"name" => __( "Projects", "sportfolio" ),
+		"singular_name" => __( "Project", "sportfolio" ),
+		"menu_name" => __( "Projects", "sportfolio" ),
+		"all_items" => __( "All Projects", "sportfolio" ),
+		"archives" => __( "Projects", "sportfolio" ),
+	);
+
+	$args = array(
+		"label" => __( "Projects", "sportfolio" ),
+		"labels" => $labels,
+		"description" => "",
+		"public" => true,
+		"publicly_queryable" => true,
+		"show_ui" => true,
+		"show_in_rest" => false,
+		"rest_base" => "",
+		"has_archive" => true,
+		"show_in_menu" => true,
+		"show_in_nav_menus" => true,
+		"exclude_from_search" => false,
+		"capability_type" => "post",
+		"map_meta_cap" => true,
+		"hierarchical" => true,
+		"rewrite" => array( "slug" => "projects", "with_front" => true ),
+		"query_var" => true,
+		"supports" => array( "title", "editor", "thumbnail", "excerpt", "custom-fields", "page-attributes", "post-formats" ),
+		"taxonomies" => array( "category", "post_tag" ),
+	);
+
+	register_post_type( "projects", $args );
+}
+add_action( 'init', 'register_my_cpts_projects' );
+
+function get_projects()
+{
+	$args = array(
+	    'post_type'=> 'projects',
+	    'post_parent' => 0
+	    );              
+	$the_query = new WP_Query( $args );
+	return $the_query;
+}
+// add_action( 'pre_get_posts', 'get_projects' );

@@ -14,18 +14,17 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer">
+		<nav id="footer-navigation" class="main-navigation footer-navigation">
+			<?php
+			wp_nav_menu( array(
+				'theme_location' => 'menu-1',
+				'menu_id'        => 'primary-menu',
+			) );
+			?>
+		</nav><!-- #site-navigation -->
+		<?php get_template_part('template-parts/page/sociallinks'); ?>
 		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'sportfolio' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'sportfolio' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'sportfolio' ), 'sportfolio', '<a href="http://underscores.me/">Underscores.me</a>' );
-				?>
+			<p>© <?php echo date('Y'); ?> - Serena Liao. All rights reserved.</p>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
