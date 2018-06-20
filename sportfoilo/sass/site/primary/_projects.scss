@@ -1,0 +1,33 @@
+.project {
+	width: 100%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 50% 50%;
+	a {
+		color: #000;
+	}
+	.project-intro {
+		min-width: 250px;
+		min-height: 250px;
+		display: flex;
+		justify-content:center;
+	    align-items:center;
+		padding: 2rem;
+		background: rgba(255,255,255,0.7);
+		visibility: hidden;
+		h3 {
+			font-size: 1.5rem;
+		}
+	}
+	&:hover {
+		.project-intro {
+			visibility: visible;
+		}
+	}
+}
+
+.archive-projects {
+	.project {
+		margin: 1rem auto;
+	}
+}

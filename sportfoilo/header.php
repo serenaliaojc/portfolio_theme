@@ -51,7 +51,7 @@
 	<header id="masthead" class="site-header">
 		<div class="site-branding">
 			<?php the_custom_logo(); ?>
-			<h1><a href="<?php echo get_home_url(); ?>"><?php bloginfo( 'name' ); ?></a></h1>
+			<h2><a href="<?php echo get_home_url(); ?>"><?php bloginfo( 'name' ); ?></a></h2>
 		</div><!-- .site-branding -->
 
 		<nav id="site-navigation" class="main-navigation">

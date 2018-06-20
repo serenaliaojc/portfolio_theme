@@ -138,10 +138,11 @@
 }
 
 .site-header {
+	z-index: 10;
 	position: sticky;
 	top: 0px;
 	border-bottom: 1px dashed $color__main-brand;
-	padding: 0.5rem;
+	padding: 0.7rem;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -151,7 +152,7 @@
 		max-width: 50px;
 		display: inline-block;
 	}
-	h1 {
+	h2 {
 		display: inline-block;
 		vertical-align: middle;
 		margin-left: 1rem;

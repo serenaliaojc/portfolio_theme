@@ -14,25 +14,34 @@ get_header();
 				?>
 			</header><!-- .page-header -->
 
+			<div class="archive-projects row justify-center">
 			<?php
 			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
-
-				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content/content', get_post_type() );
+			while ( have_posts() ) : the_post();
+				if ($post->post_parent==0): ?>
+					<!-- echo $post->post_title;
+					echo get_post_type(); -->
+					<div class="col-md-4 col-sm-12">
+						<div class="project" style="background-image: url(<?php the_post_thumbnail_url('project-thumb'); ?>);">
+							<a href="<?php echo get_permalink(); ?>">
+								<div class="project-intro" >
+									<h3><?php the_title(); ?></h3>
+								</div>
+							</a>
+						</div>
+					</div>		
+				<?php
+				endif;
+				// get_template_part( 'template-parts/content/content', get_post_type() );
 
 			endwhile;
-
-			the_posts_navigation();
-
+			?>
+			</div>
+		
+		<?php
 		else :
 
-			get_template_part( 'template-parts/content', 'none' );
+			get_template_part( 'template-parts/content/content', 'none' );
 
 		endif;
 		?>
